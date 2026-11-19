@@ -10,7 +10,7 @@ Plateforme open source de **gestion des vulnérabilités** : elle centralise les
 
 > Aegiris n'est pas un scanner : c'est la couche d'orchestration, de priorisation et de reporting au-dessus des scanners.
 
-![CI](https://github.com/<votre-compte>/aegiris-vm/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/saharhamdi/aegiris-vm/actions/workflows/ci.yml/badge.svg)
 
 ## Aperçu
 

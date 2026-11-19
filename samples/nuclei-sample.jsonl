@@ -1,0 +1,4 @@
+{"template-id":"CVE-2021-41773","info":{"name":"Apache HTTP Server 2.4.49 - Path Traversal","severity":"high","description":"Apache 2.4.49 permet la traversée de chemin.","classification":{"cve-id":["cve-2021-41773"],"cvss-score":7.5}},"host":"http://demo-web.local:8080","ip":"10.10.50.10","matched-at":"http://demo-web.local:8080/cgi-bin/.%2e/.%2e/etc/passwd"}
+{"template-id":"missing-hsts","info":{"name":"En-tete HSTS manquant","severity":"low","classification":{}},"host":"https://demo-web.local","ip":"10.10.50.10"}
+{"template-id":"exposed-git","info":{"name":"Depot .git expose","severity":"medium","description":"Le dossier .git est accessible publiquement.","classification":{}},"host":"https://demo-web.local","ip":"10.10.50.10"}
+{"template-id":"tech-detect","info":{"name":"Detection de technologie","severity":"info"},"host":"https://demo-web.local","ip":"10.10.50.10"}

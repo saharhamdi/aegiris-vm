@@ -1,0 +1,312 @@
+/* Charte Aegiris : bleu marine, or, bleu acier, fond crème (extraits du logo) */
+:root {
+  --bg: #fdfcf8;
+  --surface: #ffffff;
+  --surface-2: #f7f4ec;
+  --border: #e6e0d2;
+  --navy: #0a2543;
+  --navy-2: #123560;
+  --steel: #38567c;
+  --gold: #c59b45;
+  --gold-soft: #f3ead5;
+  --text: #0a2543;
+  --muted: #5b6b86;
+  --danger: #b42318;
+  --warn: #d9822b;
+  --ok: #2f7d62;
+  --serif: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* En-tête */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 10px 32px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+.topbar::after {
+  /* filet doré, comme dans le logo */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+  opacity: 0.8;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-emblem {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.brand-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--navy);
+}
+.brand-sub {
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tab {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+}
+.tab:hover {
+  color: var(--navy);
+  background: var(--gold-soft);
+}
+.tab.active {
+  color: var(--navy);
+  font-weight: 600;
+  background: var(--gold-soft);
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+
+main {
+  flex: 1;
+  padding: 26px 32px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 28px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+.footer-logo {
+  height: 30px;
+}
+
+/* Grille */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+.span-4 { grid-column: span 4; }
+.span-6 { grid-column: span 6; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+.grid > .card:not([class*="span-"]) { grid-column: span 12; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+
+@media (max-width: 1000px) {
+  .span-4, .span-6, .span-8 { grid-column: span 12; }
+  .topbar { gap: 16px; padding: 10px 16px; }
+  main { padding: 18px 16px; }
+}
+
+/* Cartes */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  min-width: 0;
+  box-shadow: 0 1px 2px rgba(10, 37, 67, 0.04), 0 6px 18px rgba(10, 37, 67, 0.04);
+}
+.card h2 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gold-soft);
+}
+
+/* KPI */
+.kpis {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 1px 2px rgba(10, 37, 67, 0.04), 0 6px 18px rgba(10, 37, 67, 0.04);
+}
+.kpi-label { color: var(--muted); font-size: 12px; font-weight: 500; }
+.kpi-value { font-family: var(--serif); font-size: 36px; font-weight: 700; line-height: 1.1; color: var(--navy); }
+.kpi-hint { color: var(--muted); font-size: 11px; }
+.kpi.danger { border-top-color: var(--danger); }
+.kpi.danger .kpi-value { color: var(--danger); }
+.kpi.warn { border-top-color: var(--warn); }
+.kpi.warn .kpi-value { color: var(--warn); }
+
+/* Tableaux */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--gold-soft);
+  white-space: nowrap;
+}
+td {
+  padding: 10px;
+  border-bottom: 1px solid #efe9db;
+  vertical-align: top;
+}
+tbody tr:hover { background: var(--surface-2); }
+tr.dim { opacity: 0.55; }
+.title { font-weight: 600; color: var(--navy); }
+.muted { color: var(--muted); }
+small.muted { display: block; font-size: 12px; }
+.center { text-align: center; }
+.overdue { color: var(--danger); font-weight: 600; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, white);
+  border: 1px solid color-mix(in srgb, var(--c) 45%, white);
+  margin-right: 4px;
+}
+
+.signals { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; color: var(--muted); }
+.kev {
+  color: var(--danger);
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid var(--danger);
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+/* Liste actifs */
+.asset-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.bar { height: 6px; background: var(--gold-soft); border-radius: 4px; margin: 5px 0 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--steel), var(--navy)); }
+
+/* Conformité */
+.compliance { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.compliance li { display: flex; gap: 10px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex: none; }
+.dot.ok { background: var(--ok); }
+.dot.warn { background: var(--warn); }
+.dot.ko { background: var(--danger); }
+
+/* Formulaires */
+input, select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+}
+input:focus, select:focus { outline: 2px solid color-mix(in srgb, var(--gold) 45%, transparent); border-color: var(--gold); }
+input.inline { width: 120px; padding: 5px 8px; }
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+.toolbar input { flex: 1; min-width: 220px; }
+
+.form { display: flex; flex-direction: column; gap: 12px; }
+.form label { display: flex; flex-direction: column; gap: 4px; color: var(--muted); font-size: 12px; font-weight: 500; }
+
+.btn {
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover { background: var(--navy-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 35%, transparent); }
+.btn:disabled { opacity: 0.5; cursor: wait; }
+.btn.ghost { background: transparent; color: var(--navy); border: 1px solid var(--gold); }
+.btn.ghost:hover { background: var(--gold-soft); box-shadow: none; }
+
+.notice { padding: 12px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); }
+.notice.error { border-color: var(--danger); color: var(--danger); background: #fdf1ef; }
+.notice.success { border-color: var(--ok); color: var(--ok); background: #eef7f3; }
+.hint { display: block; background: var(--navy); padding: 10px 12px; border-radius: 8px; color: var(--gold-soft); font-size: 12px; margin-bottom: 12px; }
+.warning { color: var(--warn); font-size: 12px; margin: 0; font-weight: 500; }
+
+/* Colonne score : badge + valeur sur une seule ligne */
+td:first-child { white-space: nowrap; }

@@ -1,0 +1,37 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "demo/api:1.4.2",
+  "ArtifactType": "container_image",
+  "Results": [
+    {
+      "Target": "demo/api:1.4.2 (debian 11.7)",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-4863",
+          "PkgName": "libwebp7",
+          "InstalledVersion": "1.2.4-0.2",
+          "FixedVersion": "1.2.4-0.2+deb12u1",
+          "Severity": "HIGH",
+          "Title": "libwebp: heap buffer overflow in WebP Codec",
+          "CVSS": { "nvd": { "V3Score": 8.8 }, "redhat": { "V3Score": 8.8 } }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22965",
+          "PkgName": "spring-beans",
+          "InstalledVersion": "5.3.17",
+          "FixedVersion": "5.3.18",
+          "Severity": "CRITICAL",
+          "Title": "spring-framework: RCE via data binding on JDK 9+",
+          "CVSS": { "nvd": { "V3Score": 9.8, "V2Score": 7.5 } }
+        },
+        {
+          "VulnerabilityID": "GHSA-xxxx-demo-0001",
+          "PkgName": "example-lib",
+          "InstalledVersion": "0.9.1",
+          "Severity": "MEDIUM",
+          "Title": "Dépendance avec défaut de validation (démo)"
+        }
+      ]
+    }
+  ]
+}
